@@ -1,0 +1,21 @@
+<div class="col-10 offset-lg-0 card shadow" style="padding-right: 1px; margin-top: 55px;">
+    <div class="row justify-content-center">
+        <div class="col-xl-10 col-xxl-9">
+            <div>
+                <label class="form-label text-center text-primary" style="display: block;"><br>Détails de Normes<br><br><br></label>
+            </div>
+            <div>
+                <form *ngIf="currentNorme.idNorme">
+                    <label class="form-label">libelle :&nbsp;</label>
+                    <input class="form-control" type="text" [(ngModel)]="currentNorme.libelle" name="libelle">
+                    <label class="form-label">La valeur minimum :&nbsp;</label>
+                    <input class="form-control" type="text" [(ngModel)]="currentNorme.maxValue" [(ngModel)]="currentNorme.unite" name="maxvalue">
+                    <label class="form-label">La valeur maximum :&nbsp;</label>
+                    <input class="form-control" type="text" [(ngModel)]="currentNorme.minValue" [(ngModel)]="currentNorme.unite" name="minvalue">
+                    <input class="btn btn-primary" type="submit" style="transform: translate(400px);margin-top: 18px;" value="Modifier" (click)="updateNorme()" routerLink="/patients">
+                </form>
+            </div>
+        </div>
+    </div>
+    <br>
+</div>

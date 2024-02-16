@@ -1,0 +1,29 @@
+<div class="col-10 offset-lg-0 card shadow" style="padding-right: 1px; margin-top: 55px;">
+    <div class="row justify-content-center">
+        <div class="col-xl-10 col-xxl-9">
+            <div>
+                <label class="form-label text-center text-primary" style="display: block;"><br>Détails de utilisateur<br><br><br></label>
+            </div>
+            <div>
+                <form *ngIf="currentUser.id">
+                    <label class="form-label">Nom :&nbsp;</label>
+                    <input class="form-control" [disabled]="view" type="text" [(ngModel)]="currentUser.nom" name="nom">
+                    <label class="form-label">Prénom :&nbsp;</label>
+                    <input class="form-control" [disabled]="view" type="text" [(ngModel)]="currentUser.prenom" name="prenom">
+                    <label class="form-label">Date de naissance :&nbsp;</label>
+                    <input class="form-control" type="date" [(ngModel)]="currentUser.dateNaissance" name="datenaissance">
+                    <label class="form-label">Adresse :&nbsp;</label>
+                    <input class="form-control" [disabled]="view" type="text" [(ngModel)]="currentUser.adresse" name="adresse">
+                    <label class="form-label">Sexe :&nbsp;</label>
+                    <input class="form-control" [disabled]="view" type="text" [(ngModel)]="currentUser.sexe" name="sexe">
+                    <label class="form-label">Numéro de téléphone :&nbsp;</label>
+                    <input class="form-control" [disabled]="view" type="text" [(ngModel)]="currentUser.tel" name="tel">
+                    <label class="form-label">Role :&nbsp;</label>
+                    <input class="form-control" type="text" [(ngModel)]="currentUser.role" name="role">
+                    <input class="btn btn-primary" [disabled]="view" type="submit" style="transform: translate(400px);margin-top: 18px;" value="Modifier" (click)="updateUser()" routerLink="/users">
+                </form>
+            </div>
+        </div>
+    </div>
+    <br>
+</div>

@@ -1,0 +1,25 @@
+<div class="col-10 offset-lg-0 card shadow" style="padding-right: 1px; margin-top: 55px;">
+    <br>
+    <div class="row justify-content-center">
+        <div class="col-xl-6 col-xxl-6">
+            <div>
+                <form *ngIf="!submitted">
+                    <label class="form-label">Nom :&nbsp;</label>
+                    <input class="form-control" type="text" required [(ngModel)]="patient.nom" name="nom">
+                    <label class="form-label">Prenom :&nbsp;</label>
+                    <input class="form-control" type="text" required [(ngModel)]="patient.prenom" name="prenom">
+                    <label class="form-label">Adresse :&nbsp;</label>
+                    <input class="form-control" type="text" required [(ngModel)]="patient.adresse" name="adresse">
+                    <label class="form-label">Date de naissance :&nbsp;</label>
+                    <input class="form-control" type="date" required [(ngModel)]="patient.dateNaissance" name="datenaissance">
+                    <label class="form-label">Sexe :&nbsp;</label>
+                    <input class="form-control" type="text" required [(ngModel)]="patient.sexe" name="sexe">
+                    <label class="form-label">Numéro de téléphone :&nbsp;</label>
+                    <input class="form-control" type="text" required [(ngModel)]="patient.tel" name="tel">
+                    <input class="btn btn-primary" type="submit" style="transform: translate(400px);margin-top: 18px;" value="Enregistrer" (click)="savePatient()" routerLink="/patients">
+                </form>
+            </div>
+        </div>
+    </div>
+    <br>
+</div>

@@ -1,0 +1,21 @@
+<div class="col-10 offset-lg-0 card shadow" style="padding-right: 1px; margin-top: 55px;">
+    <br>
+    <div class="row justify-content-center">
+        <div class="col-xl-6 col-xxl-6">
+            <div>
+                <form *ngIf="!submitted">
+                    <label class="form-label">libelle :&nbsp;</label>
+                    <input class="form-control" type="text" required [(ngModel)]="norme.libelle" name="libelle">
+                    <label class="form-label">La valeur maximum :&nbsp;</label>
+                    <input class="form-control" type="text" required [(ngModel)]="norme.maxValue" name="maxValue">
+                    <label class="form-label">La valeur minimum :&nbsp;</label>
+                    <input class="form-control" type="text" required [(ngModel)]="norme.minValue" name="minValue">
+                    <label class="form-label">unité  :&nbsp;</label>
+                    <input class="form-control" type="text" required [(ngModel)]="norme.unite" name="unite">
+                    <input class="btn btn-primary" type="submit" style="transform: translate(400px);margin-top: 18px;" value="Enregistrer" (click)="saveNorme()" routerLink="/normes">
+                </form>
+            </div>
+        </div>
+    </div>
+    <br>
+</div>

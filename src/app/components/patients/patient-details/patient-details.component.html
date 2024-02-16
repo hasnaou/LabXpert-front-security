@@ -1,0 +1,30 @@
+<div class="col-10 offset-lg-0 card shadow" style="padding-right: 1px; margin-top: 55px;">
+    <div class="row justify-content-center">
+        <div class="col-xl-10 col-xxl-9">
+            <div><label class="form-label text-center text-primary" style="display: block;"><br>Détails de patient<br><br><br></label>
+                <div class="row">
+                    <div class="col"><label class="form-label text-primary">Patient :</label>
+                      <label class="form-label" style="margin-left: 44px;">{{currentPatient.nom}} {{currentPatient.prenom}}</label></div>
+                </div>
+            </div>
+            <div>
+                <form *ngIf="currentPatient.id">
+                    <label class="form-label">Nom :&nbsp;</label>
+                    <input class="form-control" [disabled]="view" type="text" [(ngModel)]="currentPatient.nom" name="nom">
+                    <label class="form-label">Prénom :&nbsp;</label>
+                    <input class="form-control" [disabled]="view" type="text" [(ngModel)]="currentPatient.prenom" name="prenom">
+                    <label class="form-label">Adresse :&nbsp;</label>
+                    <input class="form-control" [disabled]="view" type="text" [(ngModel)]="currentPatient.adresse" name="adresse">
+                    <label class="form-label">Date de naissance :&nbsp;</label>
+                    <input class="form-control" type="date" [(ngModel)]="currentPatient.dateNaissance" name="datenaissance">
+                    <label class="form-label">Sexe :&nbsp;</label>
+                    <input class="form-control" [disabled]="view" type="text" [(ngModel)]="currentPatient.sexe" name="sexe">
+                    <label class="form-label">Numéro de téléphone :&nbsp;</label>
+                    <input class="form-control" [disabled]="view" type="text" [(ngModel)]="currentPatient.tel" name="tel">
+                    <input class="btn btn-primary" [disabled]="view" type="submit" style="transform: translate(400px);margin-top: 18px;" value="Modifier" (click)="updatePatient()" routerLink="/patients">
+                </form>
+            </div>
+        </div>
+    </div>
+    <br>
+</div>

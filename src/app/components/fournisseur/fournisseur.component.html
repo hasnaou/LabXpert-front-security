@@ -1,0 +1,45 @@
+ <div class="card shadow" style="margin-top: 55px;">
+        <div class="card-header d-flex flex-wrap justify-content-center align-items-center justify-content-sm-between gap-3" style="margin-top: 0px;">
+          <a routerLink="/addfournisseur" class="btn btn-primary" type="button">Ajouter Fournisseur</a>
+          <h5 class="display-6 text-nowrap text-capitalize mb-0">Liste Fournisseur</h5>
+          <div class="input-group input-group-sm w-auto">
+            <input [(ngModel)]="searchText" class="form-control form-control-sm" (keyup)="$event.target" type="text">
+           </div>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-striped table-hover">
+              <thead>
+              <tr>
+                <th [hidden]="true">id</th>
+                <th>Nom Fournisseur</th>
+                <th>tel</th>
+                <th>Adresse</th>
+                <th class="text-center">Actions</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let fournisseur of fournisseurs | search:searchText">
+                <td class="text-truncate" style="max-width: 200px;" [hidden]="true">{{fournisseur.idFournisseur}}</td>
+                <td class="text-truncate" style="max-width: 200px;">{{fournisseur.nom}}</td>
+                <td class="text-truncate" style="max-width: 200px;">{{fournisseur.tel}}</td>
+                <td class="text-truncate" style="max-width: 200px;">{{fournisseur.adresse}}</td>
+                <td class="text-center"><a [routerLink]="['/updatefournisseur',fournisseur.idFournisseur]"><i class="fa fa-edit fs-5 text-primary" style="margin-right: 8px;"></i></a><a (click)="delF(fournisseur)"><i class="fa fa-trash fs-5 text-primary"></i></a></td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="card-footer">
+          <nav>
+            <ul class="pagination pagination-sm mb-0 justify-content-center">
+              <li class="page-item"><a class="page-link" aria-label="Previous" href="#"><span aria-hidden="true">«</span></a></li>
+              <li class="page-item"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item"><a class="page-link" aria-label="Next" href="#"><span aria-hidden="true">»</span></a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+

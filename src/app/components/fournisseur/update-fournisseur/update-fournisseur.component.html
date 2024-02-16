@@ -1,0 +1,16 @@
+<div class="row justify-content-center">
+  <div class="col-xl-10 col-xxl-9">
+    <div class="rf-register-form">
+      <form class="rg-form" [formGroup]="form">
+        <h2>
+          <button class="btn btn-primary" type="button" style="margin-right: 9px;margin-left: 4px;" routerLink="/fournisseurs"><i class="fa fa-arrow-left"></i></button>
+          Modifier Fournisseur</h2>
+        <input class="form-control rf-input-field" type="text" placeholder="id"  formControlName="idFournisseur" hidden="hidden" />
+        <div class="rf-input-container"><i class="fa fa-star fa fa-user rf-icon"></i><input class="form-control rf-input-field" type="text" placeholder="Nom" formControlName="nom" /></div>
+        <div class="rf-input-container"><i class="fa fa-mobile fa fa-envelope rf-icon"></i><input class="form-control rf-input-field" type="text" placeholder="Telephone" formControlName="tel" /></div>
+        <div class="rf-input-container"><i class="fa fa-map-pin fa fa-key rf-icon"></i><input class="form-control rf-input-field" type="text" placeholder="adresse"  formControlName="adresse"/></div>
+        <button class="btn btn-primary rf-btn" type="button" (click)="updateF()">Modifier</button>
+      </form>
+    </div>
+  </div>
+</div>

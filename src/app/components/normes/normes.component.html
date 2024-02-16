@@ -1,0 +1,49 @@
+
+<div class="card shadow" style="margin-top: 55px;">
+    <div class="card-header d-flex flex-wrap justify-content-center align-items-center justify-content-sm-between gap-3" style="margin-top: 0px;"><button class="btn btn-primary" type="button" routerLink="/add-norme">Ajouter Norme</button>
+        <h5 class="display-6 text-nowrap text-capitalize mb-0">Liste Normes</h5>
+        <div class="input-group input-group-sm w-auto"><input class="form-control form-control-sm" type="text"><button class="btn btn-outline-primary btn-sm" type="button"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" class="bi bi-search mb-1">
+                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"></path>
+                </svg></button></div>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Libelle</th>
+                        <th>Valeur maximum</th>
+                        <th>Valeur minimum</th>
+                        <th>Unite</th>
+                      <th></th>
+                        <th>Action</th>
+                      <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let norme of normes">
+                        <td class="text-truncate" style="max-width: 200px;">{{norme.libelle}}</td>
+                        <td class="text-truncate" style="max-width: 200px;">{{norme.maxValue}}</td>
+                        <td class="text-truncate" style="max-width: 200px;">{{norme.minValue}}</td>
+                        <td class="text-truncate" style="max-width: 200px;">{{norme.unite}}</td>
+                        <td class="text-center"><a><i (click)="deleteNorme(norme)" class="fa fa-trash fs-5 text-primary"></i></a></td>
+                        <td class="text-center"><a [routerLink]="['/norme-details', norme.idNorme]"><i class="fa fa-pencil fs-5 text-primary"></i></a></td>
+                   <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card-footer">
+        <nav>
+            <ul class="pagination pagination-sm mb-0 justify-content-center">
+                <li class="page-item"><a class="page-link" aria-label="Previous" href="#"><span aria-hidden="true">«</span></a></li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" aria-label="Next" href="#"><span aria-hidden="true">»</span></a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+

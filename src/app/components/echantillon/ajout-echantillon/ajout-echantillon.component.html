@@ -1,0 +1,51 @@
+<div class="card shadow" style="margin-top: 55px;">
+  <div class="card-header d-flex flex-wrap justify-content-center align-items-center justify-content-sm-between gap-3" style="margin-top: 0px;">
+    <h3 class="display-6 text-nowrap text-capitalize mb-0">
+      <button class="btn btn-primary" type="button" style="margin-right: 9px;margin-left: 4px;" routerLink="/echantillons"><i class="fa fa-arrow-left"></i></button>
+      Ajouter Echantillon</h3>
+  </div>
+  <div class="card-body">
+    <label class="form-label" style="margin-top: 23px;margin-left: 15px;margin-right: 18px;">Patient</label>
+    <input [(ngModel)]="search" type="search" placeholder="Taper info patient"  style="margin-left: 11px;" >
+    <div *ngIf="search!==''" style="overflow-y: scroll;height: 150px;">
+    <div *ngFor="let p of (patients | searchPatientPipe:search)as patient" style=" max-height: 50px; margin-bottom: 16px;margin-top: 14px;">
+      <label class="form-label" style="margin-right: 16px;">Nom Patient:</label>
+      <label class="form-label">{{ p.nom }}</label>
+      <label class="form-label" style="margin-left: 14px;margin-right: 19px;">Prenom:&nbsp;</label>
+      <label class="form-label">{{ p.prenom }}</label>
+      <label class="form-label" style="margin-left: 14px;margin-right: 22px;">Tel:</label>
+      <label class="form-label">{{ p.tel }}</label>
+      <button class="btn btn-info" type="button" (click)="showPatient(patients.indexOf(p))"  style="margin-left: 8px;padding-top: 3px;padding-bottom: 0px;margin-bottom: 7px;">Choisir</button>
+    </div>
+  </div>
+    <div *ngIf="showddiv">
+      <h3>Patient Choisie:</h3>
+      <label class="form-label" style="margin-right: 16px;">Nom Patient:</label>
+      <label class="form-label">{{ patient.nom }}</label>
+      <label class="form-label" style="margin-left: 14px;margin-right: 19px;">Prenom:&nbsp;</label>
+      <label class="form-label">{{ patient.prenom }}</label>
+      <label class="form-label" style="margin-left: 14px;margin-right: 22px;">Tel:</label>
+      <label class="form-label">{{ patient.tel }}</label>
+    </div>
+    <div style="margin-top: 5px;margin-bottom: 22px;">
+      <form *ngIf="!submitted">
+        <input type="hidden" name="patient" [(ngModel)]="patient" >
+        <label class="form-label" style="margin-top: 4px;margin-bottom: 15px;">Date Prelevement :</label>
+        <input class="form-control" type="date" name="datePrelevement" [(ngModel)]="echantillon.datePrelevement" style="display: inline-block;">
+        <label class="form-label" style="margin-top: 8px;margin-bottom: 15px;">Nom analyse:</label>
+        <input class="form-control" type="text" name="typeAnalyse" [(ngModel)]="echantillon.typeAnalyse">
+        <div style="border: 1px solid ;margin-top: 10px; margin-bottom: 10px;padding: 10px;">
+        <label class="form-label">Liste Materiel</label>
+        <select class="form-select" [(ngModel)]="selectedOutil" name="outil">
+            <option *ngFor="let outil of outils" [ngValue]="outil"> {{outil.libelle}}</option>
+      </select>
+        <label class="form-label">Quantite</label>
+        <input class="form-control" type="text" [(ngModel)]="selectedOutilQuantite" name="quantite">
+          <button class="btn btn-info" style="margin: 20px;" (click)="addtomateriel()">Add Autre Materiel</button>
+        </div>
+        <input class="btn btn-primary" type="submit" (click)="addechantillon()" style="margin-top: 8px;">
+      </form>
+    </div>
+  </div>
+
+</div>
